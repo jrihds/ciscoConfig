@@ -16,9 +16,8 @@ conf t
 	EXEC *
 
 conf t
-	line vty 0 4 			// router
-	line vty 0 15 			// switch
-
+	line vty 0 4 (router)
+	line vty 0 15 (switch)
 		password cisco
 		login
 
@@ -153,7 +152,7 @@ conf t
 	router eigrp 1
 		no auto-summary
 		network 10.0.0.0 0.0.0.255
-		variance 2 				// may need to 'clear ip route *'
+		variance 2 (clear ip route *)
 		maximum-paths 5
 		metric weights 0 1 1 1 1 1
 		passive-interface e0/0
@@ -220,7 +219,7 @@ conf t
 	spanning-tree portfast default
 	spanning-tree vlan 1 root primary
 	spanning-tree vlan 1 root secondary
-	spanning-tree vlan 1 priority 0  		// increments of 4096
+	spanning-tree vlan 1 priority 0  (increments of 4096)
 	spanning-tree vlan 1 forward-time
 	spanning-tree vlan 1 hello-time
 	spanning-tree vlan 1 max-age
@@ -231,7 +230,7 @@ conf t
 		spanning-tree portfast
 		spanning-tree portfast disable
 		spanning-tree portfast trunk
-		spanning-tree vlan 1 port-priority 0 	// increments of 16
+		spanning-tree vlan 1 port-priority 0 (increments of 16)
 
 conf t
 	vlan 1
@@ -244,10 +243,10 @@ conf t
 conf t
 	int f0/1
 		switchport mode access
-		switchport mode trunk			// force trunk
-		switchport mode dynamic auto		// trunk if other end is trunk or des
-		switchport mode dynamic desirable	// trunk if other end is trunk, auto or des
-		switchport nonegotiate			// only when access or trunk
+		switchport mode trunk			(force trunk)
+		switchport mode dynamic auto		(trunk if other end is trunk or des)
+		switchport mode dynamic desirable	(trunk if other end is trunk, auto or des)
+		switchport nonegotiate			(only when access or trunk)
 		
 conf t
 	int f0/1
@@ -260,7 +259,7 @@ conf t
 
 conf t
 	int f0/1
-		switchport trunk encapsulation isl
+		switchport trunk encapsulation isl	(CHECK THIS ON THE 3500XL)
 		switchport trunk encapsulation dot1q
 		switchport trunk encapsulation negotiate
 
@@ -270,7 +269,7 @@ conf t
 		no shut
 
 conf t
-	vtp pruning 				// only in server mode
+	vtp pruning (only in server mode)
 
 conf t
 	vtp domain JAMES
@@ -289,6 +288,8 @@ conf t
 		encapsulation dot1q 2
 		encapsulation dot1q 2 native
 		ip ad 10.0.0.1 255.255.255.0
+
+Telephony?
 
 conf t
 	int f0/1
@@ -366,12 +367,17 @@ conf t
 	int s0/0
 		ip nat outside
 
+Wireless Access Point?
+VPN?
+
 conf t
 	ipv6 unicast-routing
 	ipv6 cef
 	ipv6 router ospf 1
 	int f0/1
 		ipv6 ad 2001:db8:3c4d:11::/64 eui-64
+	
+Do More ipv6
 
 conf t
 	int tunnel 0
@@ -438,8 +444,8 @@ conf t
 		clock rate 64000
 
 conf t
-	username R2 password CISCO			// Username is of opposite router
-	int s0/0					// passwords remain same accross both
+	username R2 password CISCO		(Username is of opposite router)
+	int s0/0				(passwords remain same accross both)
 		encapsulation ppp
 		ppp authentication chap
 
@@ -468,11 +474,11 @@ conf t
 
 conf t
 	int f0/10
-		channel-group 1 mode active		// LACP Unconditionally
-		channel-group 1 mode auto		// PAgP if PAgP is detected
-		channel-group 1 mode desirable		// PAgP Unconditionally
-		channel-group 1 mode on			// Etherchannel only
-		channel-group 1 mode passive		// LACP if LACP is detected
+		channel-group 1 mode active		LACP Unconditionally
+		channel-group 1 mode auto		PAgP if PAgP is detected
+		channel-group 1 mode desirable		PAgP Unconditionally
+		channel-group 1 mode on			Etherchannel only
+		channel-group 1 mode passive		LACP if LACP is detected
 
 conf t
 	int s0/0

@@ -1,0 +1,21 @@
+ISATAP-Router
+
+	int tunnel 0
+		ipv6 address 2001::1/64 eui-64
+		tunnel source f0/0
+		tunnel mode ipv6ip isatap
+		no ipv6 nd suppress-ra
+
+
+
+ISATAP Client
+
+	int tu0
+	ipv6 enable
+	tunnel source f0/0
+	tunnel destination 1.1.1.1
+	tunnel mode ipv6ip
+		ipv6 address 2001::XXXX:XXXX		// insert ipv4 address in hex, same as quartet 7+8 of link local
+
+	ipv6 route 3000::/64 2001::C0A8:1703		// destination address, quartet 7+8 are ipv4 add
+

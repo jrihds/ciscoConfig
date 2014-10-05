@@ -1,0 +1,9 @@
+ip sla monitor 1
+	type echo protocol ipIcmpEcho 10.0.1.2 source-interface f0/0
+		frequency 20
+ip sla monitor schedule 1 life forever start-time now
+
+track 10 rtr 1
+	delay down 5
+
+ip route 7.7.7.7 255.255.255.255 f0/1 track 10

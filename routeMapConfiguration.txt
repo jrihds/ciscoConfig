@@ -1,0 +1,20 @@
+This configuration blocks 1.1.1.1/32 from being redistributed. It denies IP addresses matched from the prefix list.
+
+	route-map RM-JAMES deny 5
+		match ip add prefix PL-JAMES
+	route-map RM-JAMES permit 10
+
+	ip prefix-list PL-JAMES permit 1.1.1.1/32
+
+
+
+This configuration redistributes all routes. The route map is trying to match IP addresses, and the prefix list is not giving any positive matches.
+
+	route-map RM-JAMES deny 5
+		match ip add prefix PL-JAMES
+	route-map RM-JAMES permit 10
+
+	ip prefix-list PL-JAMES deny 1.1.1.1/32
+
+
+

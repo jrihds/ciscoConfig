@@ -1,4 +1,4 @@
-ISATAP-Router
+// ISATAP-Router
 
 	int tunnel 0
 		ipv6 address 2001::1/64 eui-64
@@ -8,7 +8,7 @@ ISATAP-Router
 
 
 
-ISATAP Client
+// ISATAP Client
 
 	int tu0
 	ipv6 enable

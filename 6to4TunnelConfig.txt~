@@ -2,12 +2,12 @@ Reserved range
  - All packets out the tunnel use quartets 2 and 3 of the source packet to find the destination ipv4 address
  - Means quartets 2 and 3 have to be the subnet for all end traffic
 
+
 ipv6 general-prefix JAMES 6to4 f0/0
 int tunnel 0
 	ipv6 address 2002:A00:1::1/64		(A00:1 = ipv4 address of source int)
 	tunnel source f0/0
 	tunnel mode ipv6ip 6to4
-
 ipv6 route 2002::/16
 
 

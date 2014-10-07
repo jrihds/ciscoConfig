@@ -1,0 +1,5 @@
+conf t
+	mac-address-table static aaaa.bbbb.cccc interface f0/0 vlan 1
+
+conf t
+	ip host james 10.0.0.1

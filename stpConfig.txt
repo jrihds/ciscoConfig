@@ -1,0 +1,17 @@
+conf t
+	spanning-tree mode rapid-pvst
+	spanning-tree portfast default
+	spanning-tree vlan 1 root primary
+	spanning-tree vlan 1 root secondary
+	spanning-tree vlan 1 priority 0  		// increments of 4096
+	spanning-tree vlan 1 forward-time
+	spanning-tree vlan 1 hello-time
+	spanning-tree vlan 1 max-age
+
+conf t
+	int f0/1
+		spanning-tree bpduguard enable
+		spanning-tree portfast
+		spanning-tree portfast disable
+		spanning-tree portfast trunk
+		spanning-tree vlan 1 port-priority 0 	// increments of 16

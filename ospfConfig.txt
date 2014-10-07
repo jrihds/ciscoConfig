@@ -1,0 +1,58 @@
+conf t
+	router ospf 1
+		network 10.0.0.0 0.0.0.255 area 1
+		network 20.0.0.0 0.0.0.255 area 2
+		default-information originate
+		default-information originate always
+		area 2 stub
+		area 2 stub no-summary
+		router-id 1.1.1.1
+		passive-interface e0/0
+		summary-address 10.0.0.0 255.255.0.0
+
+conf t
+	int f0/0
+		ip ospf priority 0
+
+conf t
+	int f0/0
+		ip ospf authentication-key cisco
+		ip ospf authentication
+
+conf t
+	int f0/0
+		ip ospf authentication message-digest
+		ip ospf message-digest-key 1 md5 cisco
+
+conf t
+	int f0/0
+		ip ospf hello-interval 6
+		ip ospf dead-interval 18
+
+conf t
+	int f0/0
+		ip ospf network broadcast
+		ip ospf network non-broadcast
+		ip ospf network point-to-multipoint
+		ip ospf network point-to-point
+
+show ip ospf
+show ip ospf border-routers
+show ip ospf database
+show ip ospf database *lsa-type lsid*
+show ip ospf database | begin AS external
+show ip ospf database | include 10.16
+show ip ospf database database-summary
+show ip ospf database network 10.10.34.4
+show ip ospf database router 5.5.5.5
+show ip ospf database summary 0.0.0.0
+show ip ospf interface
+show ip ospf interface brief
+show ip ospf interface f0/0
+show ip ospf neighbor
+show ip ospf request-list
+show ip ospf retransmission-list
+show ip ospf statistics
+show ip ospf summary-address
+show ip ospf traffic
+show ip ospf virtual-links

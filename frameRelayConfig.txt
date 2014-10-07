@@ -1,0 +1,30 @@
+conf t
+	int s0/0
+		encapsulation frame-relay
+		no frame-relay inverse-arp
+		ip ad 10.0.0.1 255.255.255.252
+		frame-relay map ip 10.0.0.2 221 broadcast
+		
+conf t
+	int s0/0
+		encapsulation frame-relay
+		no frame-relay inverse-arp
+	int s0/0.2 point-to-point
+		ip ad 10.0.0.1 255.255.255.252
+		frame-relay interface-dlci 221
+
+conf t
+	int s0/0
+		encapsulation frame-relay
+		no frame-relay inverse-arp
+	int s0/0.2 multipoint
+		ip ad 10.0.0.1 255.255.255.252
+		frame-relay map ip 10.0.0.2 221 broadcast
+
+conf t
+	int s0/0
+		encapsulation frame-relay ietf
+		encapsulation frame-relay 
+		frame-relay lmi-type cisco
+		frame-relay lmi-type ansi
+		frame-relay lmi-type q933a

@@ -1,0 +1,4 @@
+conf t
+	int f0/1
+		ip ad 10.0.0.1 255.255.255.252
+		no shut

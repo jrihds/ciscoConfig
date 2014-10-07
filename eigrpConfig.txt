@@ -1,0 +1,38 @@
+conf t
+	router eigrp 1
+		no auto-summary
+		network 10.0.0.0 0.0.0.255
+		variance 2 				// may need to 'clear ip route *'
+		maximum-paths 5
+		metric weights 0 1 1 1 1 1
+		passive-interface e0/0
+
+conf t
+	int f0/0
+		ip summary-address eigrp 1 10.0.2.0 255.255.254.0
+
+conf t
+	key chain JAMES
+		key 1
+			key-string cisco
+
+	int f0/0
+		ip authentication mode eigrp 1 md5
+		ip authentication key-chain eigrp 1 JAMES
+
+conf t
+	int f0/0
+		ip hello-interval eigrp 1 8
+		ip hold-time eigrp 1 24
+		no ip split-horizon eigrp 1
+
+show ip eigrp interface detail
+show ip eigrp interface detail f0/0
+show ip eigrp interfaces
+show ip eigrp neighbor
+show ip eigrp neighbor detail
+show ip eigrp neighbors
+show ip eigrp topology
+show ip eigrp topology 10.11.1.0/24
+show ip eigrp topology all-links
+show ip eigrp traffic

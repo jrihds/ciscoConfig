@@ -1,0 +1,15 @@
+conf t
+	vlan 1
+		name JAMES
+
+conf t
+	int vlan 1
+		ip ad 10.0.0.1 255.255.255.0
+		no shut
+
+conf t
+	int  f0/0.2
+		encapsulation isl 2
+		encapsulation dot1q 2
+		encapsulation dot1q 2 native
+		ip ad 10.0.0.1 255.255.255.0

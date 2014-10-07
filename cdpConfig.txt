@@ -1,0 +1,11 @@
+conf t
+	no cdp run
+	cdp timer 30
+	cdp holdtime 30
+
+show cdp neighbors
+show cdp interface e0/0
+
+conf t
+	int f0/1
+		no cdp enable

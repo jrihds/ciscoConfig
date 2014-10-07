@@ -1,0 +1,14 @@
+
+conf t
+	vtp pruning 				// only in server mode
+
+conf t
+	vtp domain JAMES
+	vtp password cisco
+	vtp mode client
+	vtp mode transparent
+	vtp mode server
+	vtp version 1
+	vtp version 2
+
+show vtp password

@@ -1,0 +1,35 @@
+conf t
+	line vty 0 4 			// router
+	line vty 0 15 			// switch
+
+		password cisco
+		login
+
+conf t
+	enable password cisco
+	enable secret cisco
+
+conf t
+	line con 0
+		logging synchronous
+		password cisco
+		exec-timeout 5 50
+
+conf t
+	ip name-server 10.0.0.1
+	no ip domain-lookup
+	ip domain-name cisco.com
+	service password-encryption
+
+conf t
+	username ben password cisco
+	username james privilege 15 password cisco
+	ip domain-name james.com
+	crypto key generate rsa
+	line vty 0 4
+		transport input ssh
+		login local
+
+conf t
+	line vty 0 4
+		access-class 1 in

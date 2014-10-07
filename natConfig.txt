@@ -1,0 +1,20 @@
+conf t
+	access-list 5 permit 10.0.0.0 0.0.0.255
+	ip nat pool POOL 58.58.58.1 58.58.58.10 netmask 255.255.255.0
+	ip nat pool POOL 58.58.58.1 58.58.58.10	prefix-length 29
+	ip nat inside source list 5 pool POOL overload
+	ip nat translation max-entries 10
+	ip nat translation timeout 86400
+
+conf t
+	access-list 4 permit 10.0.0.0 0.0.0.255
+	ip nat inside source list 4 interface s0/0 overload
+
+conf t
+	ip nat inside source static 10.0.0.1 58.58.58.1
+
+conf t
+	int f0/0
+		ip nat inside
+	int s0/0
+		ip nat outside

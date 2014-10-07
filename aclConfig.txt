@@ -1,0 +1,45 @@
+conf t
+	mac access-list standard JAMES
+		permit aaaa.bbbb.cccc
+
+conf t
+	mac access-list extended JAMES
+		permit host aaaa.bbbb.cccc host bbbb.cccc.aaaa something something
+
+conf t
+	access-list 10 permit 10.0.0.0 0.0.0.255 log
+	access-list 10 permit host 10.0.0.1
+	access-list 10 permit any
+
+conf t
+	access-list 100 permit ip 10.0.0.0 0.0.0.255 20.0.0.0 0.0.0.255
+	access-list 100 permit ip host 10.0.0.1 10.0.1.0 0.0.0.255
+	access-list 100 permit tcp any any eq 23
+	access-list 100 permit udp any any eq 53	
+	access-list 100 permit ip host 10.0.0.1 host 10.0.0.2 time-range JAMES
+	access-list 100 permit tcp any any eq 69 time-range JAMES
+
+conf t
+	ip access-list standard JAMES
+		permit 10.0.0.0 0.0.0.255 log
+	
+conf t
+	ip access-list extended JAMES
+		permit ip host 10.0.0.1 host 10.0.0.2
+		permit tcp host 10.0.0.1 host 10.0.0.2 eq 6
+
+conf t
+	time-range DAYTIME
+		absolute start 06:00 1 January 2012 end 12:00 1 February 2012
+		periodic weekdays 07:00 to 18:00
+		periodic weekends 07:00 to 19:00
+		periodic Thursday 06:00 to Friday 19:00
+		
+conf t
+	clock timezone JAMES 0 0 
+
+clock set 15:19:00 13 May 2012
+
+conf t
+	int f0/0
+		ip access-group 1 in

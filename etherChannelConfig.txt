@@ -1,0 +1,7 @@
+conf t
+	int f0/10
+		channel-group 1 mode active		// LACP Unconditionally
+		channel-group 1 mode auto		// PAgP if PAgP is detected
+		channel-group 1 mode desirable		// PAgP Unconditionally
+		channel-group 1 mode on			// Etherchannel only
+		channel-group 1 mode passive		// LACP if LACP is detected

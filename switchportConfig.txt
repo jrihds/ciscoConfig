@@ -1,0 +1,37 @@
+conf t
+	int f0/1
+		switchport access vlan 2
+
+conf t
+	int f0/1
+		switchport mode access
+		switchport mode trunk			// force trunk
+		switchport mode dynamic auto		// trunk if other end is trunk or des
+		switchport mode dynamic desirable	// trunk if other end is trunk, auto or des
+		switchport nonegotiate			// only when access or trunk
+		
+conf t
+	int f0/1
+		switchport trunk native vlan 1
+		switchport native vlan 1
+		switchport trunk allowed vlan all
+		switchport trunk allowed vlan none
+		switchport trunk allowed vlan add 4
+		switchport trunk allowed vlan remove 2
+
+conf t
+	int f0/1
+		switchport trunk encapsulation isl
+		switchport trunk encapsulation dot1q
+		switchport trunk encapsulation negotiate
+
+
+
+conf t
+	int f0/1
+		switchport port-security mac-address aaaa.bbbb.cccc
+		switchport port-security mac-address sticky
+		switchport port-security maximum 4
+		switchport port-security violation protect
+		switchport port-security violation restrcit
+		switchport port-security violation shutdown

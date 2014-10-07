@@ -1,0 +1,36 @@
+conf t
+	int s0/0
+		clock rate 64000
+
+conf t
+	username R2 password CISCO			// Username is of opposite router
+	int s0/0					// passwords remain same accross both
+		encapsulation ppp
+		ppp authentication chap
+
+conf t
+	username R2 password CISCO
+	int s0/0
+		encapsulation ppp
+		ppp authentication chap
+		ppp chap hostname Router1
+		ppp chap password 0 CISCO
+
+conf t
+	username Router1 password 0 cisco1
+	int s0/0
+		encapsulation ppp
+		ppp authentication pap
+		ppp pap sent-username Router2 password 0 cisco2
+		ip ad 10.0.0.2 255.255.255.252
+conf t
+	username Router2 password 0 cisco2
+	int s0/0
+		encapsulation ppp
+		ppp authentication pap
+		ppp pap sent-username Router1 password 0 cisco1
+		ip ad 10.0.0.1 255.255.255.252
+
+conf t
+	int s0/0
+		encapsulation HDLC

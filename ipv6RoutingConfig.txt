@@ -1,0 +1,21 @@
+conf t
+	ipv6 unicast-routing
+	ipv6 cef
+	ipv6 router ospf 1
+	int f0/1
+		ipv6 ad 2001:db8:3c4d:11::/64 eui-64
+
+conf t
+	int f0/0
+		ipv6 rip 1 enable
+
+conf t
+	int f0/0
+		ipv6 ospf 1 area 0
+
+conf t
+	ipv6 router eigrp 10
+		no shut
+		exit
+	int f0/0
+		ipv6 eigrp 10

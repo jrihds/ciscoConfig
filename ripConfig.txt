@@ -1,0 +1,31 @@
+conf t
+	router rip
+		no auto-summary
+		version 2
+		network 10.0.0.0
+		timers basic 30 180 180 240
+		passive-interface f0/2
+
+debug ip rip
+debug ip rip events
+
+conf t
+	int f0/0
+		ip summary-address rip 10.0.2.0 255.255.254.0
+
+conf t
+	key chain JAMES
+		key 1
+			key-string cisco
+
+conf t
+	int f0/0
+		ip rip authentication mode md5
+		ip rip authentication key-chain JAMES
+
+conf t
+	int f0/0
+		no ip split-horizon
+
+
+show ip rip database

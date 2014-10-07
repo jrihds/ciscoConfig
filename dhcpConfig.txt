@@ -1,0 +1,15 @@
+conf t
+	ip dhcp pool JAMES
+		network 10.0.0.0 255.255.255.0
+		default-router 10.0.0.1
+		exit
+	ip dhcp excluded-address 10.0.0.1
+
+conf t
+	ipv6 dhcp pool JAMES
+		dns-server 10.0.0.5
+		domain-name lammle.com
+		prefix-delegation pool TEST lifetime 3600 3600
+		exit
+	int f0/0
+		ip dhcp server TEST

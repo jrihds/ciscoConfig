@@ -1,0 +1,11 @@
+conf t
+	banner MOTD *
+	MOTD *
+
+conf t
+	banner login *
+	LOGIN *
+
+conf t
+	banner exec *
+	EXEC *

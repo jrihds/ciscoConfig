@@ -1,0 +1,15 @@
+copy running-config startup-config
+copy run start
+write
+
+erase startup-config
+erase flash
+write erase
+
+copy flash tftp
+copy startup-config tftp
+
+conf t
+	config-register 0x2102
+	config-register 0x2142
+	config-register 0x2101

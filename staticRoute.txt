@@ -1,0 +1,22 @@
+conf t
+	ip route 10.0.0.0 255.255.255.0 f0/0
+	ip route 10.0.0.0 255.255.255.0 20.0.0.1
+	ip route 0.0.0.0 0.0.0.0 f0/0
+	ip route 0.0.0.0 0.0.0.0 20.0.0.1
+
+show ip policy
+show ip policy-list
+show ip prefix-list
+show ip protocols
+show ip route
+show ip route 10.10.10.0 255.255.255.0  longer-prefixes
+show ip route 10.16.0.0 255.255.0.0 longer-prefixes
+show ip route ospf
+show ip route summary
+show ipv6 interface brief
+show key chain
+show route-map
+show ip sla statistics
+show ip access-list
+show ip interface
+show ip interface brief

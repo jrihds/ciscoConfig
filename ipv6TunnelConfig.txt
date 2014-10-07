@@ -1,0 +1,13 @@
+conf t
+	int tunnel 0
+		ipv6 ad 2001:db8:1:1::1/64
+		tunnel source 192.168.30.1
+		tunnel destination 192.168.40.1
+		tunnel mode ipv6ip
+
+conf t
+	int tunnel 0
+		ipv6 ad 2001:db8:2:2::1/64
+		tunnel source 192.168.40.1
+		tunnel destination 192.168.30.1
+		tunnel mode ipv6ip

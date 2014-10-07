@@ -1,0 +1,15 @@
+show ip bgp
+show ip bgp 192.168.0.0
+show ip bgp filter-list
+show ip bgp flap-statistics
+show ip bgp injected-paths
+show ip bgp ipv4
+show ip bgp ipv4 multicast
+show ip bgp ipv4 multicast summary
+show ip bgp neighbor 1.1.1.1 advertised-routes
+show ip bgp neighbor 1.1.1.1 received-routes
+show ip bgp neighbor 1.1.1.1 routes
+show ip bgp neighbors
+show ip bgp paths
+show ip bgp rib-failure
+show ip bgp summary

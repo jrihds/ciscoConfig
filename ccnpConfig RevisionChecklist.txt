@@ -1,0 +1,160 @@
+BGP		configure eBGP neighbor
+		configure iBGP neighbor
+		configure MD5 authentication
+		configure single homed
+		configure dual homed
+		configure single multihomed
+		configure dual multihomed
+		configure bgp router-id
+		configure neighbor relationship on loopback
+		manually shutdown a neighbor
+		add routes with network cmd
+		create static route to null0 for subordinate routes
+		summarise routes with igp and add to bgp
+		use auto-summary
+		redistribute routes into bgp
+		redistribute routes with route-map
+		use igp summarisation and redistribution
+		configure bgp summarisation
+		configure bgp summarisation including no-summary and as-set
+		configure static route to null0 and redistribute
+		play with next-hop reachability. use next-hop-self
+		configure ibgp/ebgp. Use ibgp full mesh
+		configure bgp synchronisation
+		filter inbound bgp updates (PL, etc)
+		filter outbound bgp updates
+		clear bgp soft/hard
+		filter packets so enterprise does not become transit network
+		filter private ip address ranges from the internet
+		manipulate weight
+		manipulate local_pref
+		manipulate as_path
+		manipulate MED (routemap, etc)
+		configure and view a rib-failure
+	
+EIGRP		configure eigrp using network cmd
+		configure eigrp on each interface
+		change EIGRP timers
+		change EIGRP passive interface
+		configure EIGRP authentication, clear and md5
+		configure authentication using clock
+		configure clock
+		configure static eigrp neighbors
+		change eigrp router-id
+		configure eigrp over frame relay
+		configure eigrp split horizon
+		manipulate eigrp metric using bandwidth, delay
+		manipulate eigrp metric by changing k values
+		manipulate eigrp metric using offset list
+		change eigrp bandwidth utilisation
+		change eigrp bandwidth utilisation on MP / PTP links
+		configure a stub area with the 5 different options
+		change the active timer
+		configure unequal cost load balancing
+		filter routes using ACL, PL, RM
+		create summary routes
+		configure summary route metric
+		configure auto-summary
+		configure a default route and advertise it into eigrp
+		configure a default network
+	
+OSPF		configure ospf using network cmd
+		configure ospf per interface
+		set ospf RID
+		configure passive interface
+		configure multiple areas
+		configure hello/dead timers (inc minimal)
+		configure authentication
+		change mtu size
+		manipulate election of DR/BDR
+		verify circulation of the correct LSAs
+		change max number of LSAs
+		configure network to generate each type of LSA and view the propagation
+		configure dual ABR situation and view propagation
+		change reference bandwidth
+		manipulate metric with bandwidth cmd
+		manipulate metric with cost cmd
+		filter routes at the ABR
+		filter routes at the ASBR
+		Filter type 3's
+		Filter type 5's
+		Configure route summarisation on ABR
+		Configure route summarisation on ASBR
+		Configure stub areas
+		configure nssa
+		configure domain-wide default network
+		redistribute routes in nssa areas
+		configure virtual links
+		configure virtual link authentication
+		configure over frame relay (static neighbor, network type, etc)
+	
+Redistribution	redistribute into eigrp static
+		redistribute into eigrp connected
+		redistribute into eigrp ospf
+		redistribute into eigrp eigrp
+		redistribute into eigrp bgp
+		redistribute into eigrp rip
+		set default eigrp metric
+		use route-map metric
+		use in-line metric
+		redistribute into bgp static
+		redistribute into bgp connected
+		redistribute into bgp ospf
+		redistribute into bgp eigrp
+		redistribute into bgp rip
+		set default ospf metric
+		use route-map metric
+		use in-line metric
+		redistribute into ospf static
+		redistribute into ospf connected
+		redistribute into ospf ospf
+		redistribute into ospf eigrp
+		redistribute into ospf bgp
+		redistribute into ospf rip
+		set default ospf metric
+		use route-map metric
+		use in-line metric
+		configure ospf redistribute type 1 / 2 external route
+		tag routes during redistribution
+		filter routes with route-maps
+		filter with distribute-list
+		configure two area multi-ASBR redistribution (OSPF, EIGRP)
+		configure three area multi-ASBR redistribution (OSPF, EIGRP)
+		change AD of OSPF, EIGRP, RIP
+		configure per route AD
+		filter when redistributing
+	
+PBR		set next-hop
+		set default next-hop
+		set interface
+		set default interface
+		set ipp
+		set tos
+	
+SLA		configure sla
+		configure static route based on SLA
+		configure pbr with SLA
+	
+IPv6		configure dynamic stateful
+		configure dynamic stateless
+		configure static global unicast
+		configure static global unicast with eui-64
+		configure link local only
+		configure link local override
+		configure ipv6 address borrow
+		designate unicast address as anycast
+		enable ipv6 routing
+		configre RIPng
+		configure EIGRP for IPv6
+		configure OSPFv3
+		redistribute with routemap
+		redistribute without routemap
+		configure static routes
+	
+Tunnels		configure manual tunnel
+		configure GRE tunnel (PTP and PTMP)
+		configure automatic 6to4 tunnel using reverved range
+		configure automatic 6to4 tunnel using global unicast
+		configure ISATAP IPv6 Tunnel
+	
+Other		Configure NAT

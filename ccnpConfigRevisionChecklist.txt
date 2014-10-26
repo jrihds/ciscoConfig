@@ -153,7 +153,7 @@ IPv6		configure dynamic stateful
 	
 Tunnels		configure manual tunnel
 		configure GRE tunnel (PTP and PTMP)
-		configure automatic 6to4 tunnel using reverved range
+		configure automatic 6to4 tunnel using reserved range
 		configure automatic 6to4 tunnel using global unicast
 		configure ISATAP IPv6 Tunnel
 	
